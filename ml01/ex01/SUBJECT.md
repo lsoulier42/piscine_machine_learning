@@ -1,34 +1,37 @@
-# ml01 / ex01 — Calculer la MSE et MAE
+# ml01 / ex01 — Erreur quadratique
 
 | Champ | Valeur |
 | --- | --- |
-| Langage | Python 3.11+ |
-| Livrable | `solution.py` et `test_solution.py` |
-| Dépendances | NumPy ; scikit-learn uniquement pour comparaison explicite |
-
-## Contexte
-Fonction de coût, dérivées, gradient, normalisation et métriques de régression.
+| Fichier à rendre | `solution.py` (ou `report.md` si demandé) |
+| Tests à rendre | `test_solution.py` |
+| Python | 3.11+ |
+| Dépendances | NumPy ; Pandas/Matplotlib pour données ; scikit-learn seulement si demandé |
 
 ## Objectif
-Calculer la MSE et MAE. Concevoir une implémentation claire et vérifiable qui illustre le mécanisme étudié.
+`mse(y_true: np.ndarray, y_pred: np.ndarray) -> float`
 
-## Travail demandé
-1. Identifier les entrées, sorties et hypothèses ; les documenter dans le code.
-2. Implémenter la fonctionnalité annoncée sans copier une solution existante.
-3. Préparer au moins trois tests : nominal, limite et erreur ou cas dégénéré.
-4. Sur des données synthétiques reproductibles, observer le résultat et l'expliquer en quelques lignes dans `NOTES.md`.
+Moyenne des carrés des écarts; tailles égales non vides, sinon ValueError.
+
+## Exemple de comportement
+[1,3] et [2,1] → 2.5.
 
 ## Contraintes
-- Fixer la graine aléatoire lorsque le résultat dépend du hasard.
-- Ne pas modifier les données d'entrée sans le documenter.
-- Éviter les bibliothèques de haut niveau qui résolvent directement le problème, sauf lorsque l'exercice demande explicitement une comparaison.
-- Ne pas évaluer un modèle sur ses seules données d'entraînement.
+- Respecter la signature ou, pour un rapport, le nom de fichier demandé.
+- Vérifier dimensions, types et entrées dégénérées ; lever `ValueError` en cas d'argument invalide, sauf indication contraire.
+- Ne pas modifier les entrées.
+- Fixer une graine pour tout tirage aléatoire ; conserver la reproductibilité.
+- Ne pas appeler directement un estimateur sklearn qui résout l'exercice, sauf comparaison explicitement demandée.
+- Pour toute évaluation, séparer entraînement et test avant d'apprendre des paramètres de prétraitement.
 
-## Bonus facultatif
-Comparer deux jeux de paramètres ou deux cas limites et expliquer les différences.
+## Travail à rendre
+1. Implémentation sans corrigé fourni.
+2. Au moins trois tests : cas nominal, cas limite, entrée invalide.
+3. `NOTES.md` : expliquer le mécanisme mathématique en quelques phrases et commenter une observation expérimentale.
+
+## Bonus
+Tester une autre distribution ou un jeu de paramètres et expliquer les écarts.
 
 ## Autoévaluation
-- [ ] Le comportement est correct et testé.
-- [ ] Je peux expliquer les choix mathématiques.
-- [ ] L'expérience est reproductible.
-- [ ] Je sais identifier les limites de mon approche.
+- [ ] Résultat conforme et tests reproductibles.
+- [ ] Cas limites traités.
+- [ ] Je peux expliquer le calcul et ses limites.
